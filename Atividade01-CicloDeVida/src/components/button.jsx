@@ -7,13 +7,13 @@ const Button = forwardRef(
       <button
         disabled={disabled}
         className={twMerge(
-          "flex items-center justify-center rounded-lg px-4 py-2 text-base transition-all duration-300",
-          className,
+          "flex items-center justify-center rounded-lg px-4 py-2 text-base transition-all duration-300 w-full ",
           disabled && "opacity-70 hover:bg-onyx-600",
           variant === "primary" &&
-            "bg-onyx-600 text-slate-100 hover:bg-onyx-400",
+            "bg-onyx-600 text-slate-100 hover:bg-onyx-400 ",
           variant === "secondary" && "bg-red-500 text-black",
-          variant === "tertiary" && "bg-orange-500 text-green-400"
+          variant === "tertiary" && "bg-orange-500 text-green-400",
+          className
         )}
         ref={ref}
         {...props}

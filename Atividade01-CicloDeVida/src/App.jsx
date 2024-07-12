@@ -1,32 +1,50 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "./components/button"
+import LimitedCounter from "./exercises/LimitedCounter"
+import PersistentCounter from "./exercises/PersistentCounter"
+import RealTimeClock from "./exercises/RealTimeClock"
+import TitleUpdater from "./exercises/TitleUpdater"
+import WindowSize from "./exercises/WindowSize"
+import ToggleText from "./exercises/ToggleText"
+
+const exercises = {
+  "Atualização de Título com useEffect": <TitleUpdater showText={true} />,
+  "Monitoramento de Largura da Janela": <WindowSize />,
+  "Sincronização de Estado com Local Storage": <PersistentCounter />,
+  "Relógio em Tempo Real": <RealTimeClock />,
+  "Exibir/Mostrar Texto": <ToggleText />,
+  "Contador com Limite": <LimitedCounter />,
+}
+
+const exercisesKeys = Object.keys(exercises)
 
 function App() {
-  const exercises = [
-    "Atualização de Título com useEffect",
-    "Monitoramento de Largura da Janela",
-    "Sincronização de Estado com Local Storage",
-    "Relógio em Tempo Real",
-    "Exibir/Mostrar Texto",
-    "Contador com Limite",
-  ]
+  const [selectedExercise, setSelectedExercise] = useState(
+    localStorage.getItem("exercise")
+      ? localStorage.getItem("exercise")
+      : exercisesKeys[0]
+  )
 
-  const [selectedExercise, setSelectedExercise] = useState(0)
-
-  function handleSelectExercise(index) {
-    setSelectedExercise(index)
+  function handleSelectExercise(exercise) {
+    setSelectedExercise(exercise)
   }
 
+  useEffect(() => {
+    localStorage.setItem("exercise", selectedExercise)
+  }, [selectedExercise])
+
   return (
-    <div className="min-h-screen w-full">
-      <section>
-        <nav className="grid grid-cols-3 gap-x-4 gap-y-1 p-5 items-center justify-center">
-          {exercises.map((exercise, index) => {
+    <div className="min-h-screen w-full bg-onyx-500/80 text-[#f4f4f4]">
+      <section className="flex ">
+        <nav className="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-1 p-5 items-center justify-center w-full">
+          {exercisesKeys.map((exercise) => {
             return (
               <Button
-                className="h-full w-full "
+                className={`h-full w-full ${
+                  selectedExercise === exercise && "bg-onyx-400"
+                }`}
                 key={exercise}
-                onClick={() => handleSelectExercise(index)}
+                onClick={() => handleSelectExercise(exercise)}
               >
                 {exercise}
               </Button>
@@ -34,7 +52,10 @@ function App() {
           })}
         </nav>
       </section>
-      <p>{exercises[selectedExercise]}</p>
+      <main className="px-5 flex flex-col flex-1">
+        {exercises[selectedExercise]}
+      </main>
+      <TitleUpdater title={selectedExercise} />
     </div>
   )
 }

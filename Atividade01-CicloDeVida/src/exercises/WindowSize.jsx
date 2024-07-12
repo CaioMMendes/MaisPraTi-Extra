@@ -1,11 +1,4 @@
-// - Instruções:
-
 import { useState, useEffect } from "react"
-
-//   - Crie um componente chamado WindowSize.
-//   - Utilize useState para armazenar a largura atual da janela.
-//   - Utilize useEffect para adicionar e remover um event listener que atualiza o estado sempre que a janela é redimensionada.
-//   - Exiba a largura atual da janela.
 
 const WindowSize = () => {
   const [windowSize, setWindowSize] = useState(() => window.innerWidth)
@@ -20,9 +13,16 @@ const WindowSize = () => {
   }, [])
 
   return (
-    <div>
-      <p>A largura da janela é de: {windowSize}</p>
-    </div>
+    <section className="flex flex-col gap-2">
+      <h1 className="font-medium text-lg">
+        Monitoramento de Largura da Janela
+      </h1>
+      <div className="flex gap-4 items-center">
+        <p>
+          Width: <span className="text-lg font-semibold">{windowSize} px</span>
+        </p>
+      </div>
+    </section>
   )
 }
 
