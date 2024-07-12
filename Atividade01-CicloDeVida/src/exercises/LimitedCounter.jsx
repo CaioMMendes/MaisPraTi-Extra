@@ -17,7 +17,7 @@ const LimitedCounter = () => {
   }
 
   return (
-    <section className="flex flex-col gap-2">
+    <section className="flex flex-col gap-2 items-center bg-onyx-500/90 rounded-lg p-4 md:max-w-[50rem]  w-full">
       <h1 className="font-medium text-lg">Contador com Limite (10)</h1>
       <div className="flex gap-4 items-center">
         <Button onClick={handleDecrease} className="select-none w-fit">

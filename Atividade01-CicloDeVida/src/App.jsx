@@ -52,7 +52,7 @@ function App() {
           })}
         </nav>
       </section>
-      <main className="px-5 flex flex-col flex-1">
+      <main className="px-5 flex flex-col flex-1 items-center">
         {exercises[selectedExercise]}
       </main>
       <TitleUpdater title={selectedExercise} />
