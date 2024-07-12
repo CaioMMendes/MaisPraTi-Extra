@@ -1,5 +1,11 @@
 ## Reforçando - Ciclo de vida em componentes funcionais
 
+## Deploy
+
+<https://mais-pra-ti-extra.vercel.app/>
+
+#
+
 ### Exercício 1: Atualização de Título com useEffect
 
 **Objetivo: Atualizar o título da aba do navegador conforme o usuário interage com o componente.**
