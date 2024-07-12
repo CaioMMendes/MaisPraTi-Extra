@@ -20,11 +20,11 @@ const LimitedCounter = () => {
     <section className="flex flex-col gap-2">
       <h1 className="font-medium text-lg">Contador com Limite (10)</h1>
       <div className="flex gap-4 items-center">
-        <Button onClick={handleDecrease} className="select-none">
+        <Button onClick={handleDecrease} className="select-none w-fit">
           -
         </Button>
         <p>{counter}</p>{" "}
-        <Button onClick={handleIncrease} className="select-none">
+        <Button onClick={handleIncrease} className="select-none  w-fit">
           +
         </Button>
       </div>

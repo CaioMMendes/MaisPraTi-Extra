@@ -25,11 +25,11 @@ const PersistentCounter = () => {
         Sincronização de Estado com Local Storage
       </h1>
       <div className="flex gap-4 items-center">
-        <Button onClick={handleDecrease} className="select-none">
+        <Button onClick={handleDecrease} className="select-none w-fit">
           -
         </Button>
         <p>{counter}</p>{" "}
-        <Button onClick={handleIncrease} className="select-none">
+        <Button onClick={handleIncrease} className="select-none w-fit">
           +
         </Button>
       </div>

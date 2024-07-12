@@ -12,7 +12,7 @@ const ToggleText = () => {
     <section className="flex flex-col gap-2">
       <h1 className="font-medium text-lg">Exibir/Mostrar Texto</h1>
       <div className="flex gap-4 items-start flex-col justify-center">
-        <Button onClick={handleChangeVisible}>
+        <Button onClick={handleChangeVisible} className="w-fit">
           Tornar {isVisible ? "Invisível" : "Visível"}
         </Button>
         {isVisible && <p>O texto está visível</p>}
